@@ -14,9 +14,19 @@ import "fmt"
 // 重构代码
 
 type Block struct {
-	PrevBlockHash []byte
-	Hash          []byte
-	Data          []byte
+	PrevBlockHash []byte //前一个hash
+	Hash          []byte //当前hash
+	Data          []byte //数据
+}
+
+// 创建区块 对Block的每一个字段填充数据
+func NewBlock(data string, prevBlockHash []byte) *Block {
+	block := Block{
+		PrevBlockHash: prevBlockHash,
+		Hash:          []byte{},
+		Data:          []byte(data),
+	}
+	return &block
 }
 
 func main() {
